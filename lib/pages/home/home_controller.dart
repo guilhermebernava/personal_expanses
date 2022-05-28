@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:personal_expanses/database/daos/transaction_dao.dart';
 import 'package:personal_expanses/models/transaction.dart';
+import 'package:personal_expanses/themes/colors/app_colors.dart';
+import 'package:personal_expanses/widgets/create_transaction_form/create_transaction_form.dart';
 
 class HomeController {
   /* 
@@ -26,5 +28,15 @@ class HomeController {
     } catch (e) {
       debugPrint(e.toString());
     }
+  }
+
+  void openTransactionModal(BuildContext context) async {
+    await showModalBottomSheet(
+      backgroundColor: AppColors.white,
+      elevation: 3,
+      context: context,
+      builder: (_) => CreateTransactionForm(),
+    );
+    await getTransactions();
   }
 }

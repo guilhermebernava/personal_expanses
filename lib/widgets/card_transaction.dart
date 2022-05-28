@@ -9,6 +9,7 @@ class CardTransaction extends Card {
     required VoidCallback onPressed,
   }) : super(
           key: key,
+          elevation: 3,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,

@@ -18,6 +18,20 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(
+          Icons.add_circle,
+          size: 45,
+          shadows: [
+            Shadow(
+              color: Color.fromARGB(61, 121, 121, 121),
+              offset: Offset(0, 0),
+            )
+          ],
+        ),
+        onPressed: () => controller.openTransactionModal(context),
+      ),
       appBar: AppBar(title: const Text("Personal Expanses"), actions: [
         Padding(
           padding: const EdgeInsets.symmetric(
@@ -25,20 +39,11 @@ class _HomeState extends State<Home> {
           ),
           child: IconButton(
             icon: const Icon(
-              Icons.add_box_outlined,
+              Icons.add,
               color: AppColors.white,
               size: 40,
             ),
-            onPressed: () async {
-              await TransactionDao.save(
-                Transaction(
-                  title: "Teste 2",
-                  amount: 10.0,
-                  date: "21/02/2000",
-                ),
-              );
-              await controller.getTransactions();
-            },
+            onPressed: () => controller.openTransactionModal(context),
           ),
         ),
       ]),

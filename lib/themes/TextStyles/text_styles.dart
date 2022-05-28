@@ -15,4 +15,11 @@ class TextStyles {
       )
     ],
   );
+
+  static const error = TextStyle(
+    fontFamily: Fonts.proximaNova,
+    color: Colors.redAccent,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
 }
