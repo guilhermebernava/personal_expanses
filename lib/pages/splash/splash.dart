@@ -22,8 +22,6 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    SplashController.redirectOnAnimationEnd(context);
-
     return Scaffold(
       backgroundColor: Colors.black54,
       body: Center(
@@ -45,16 +43,19 @@ class _SplashState extends State<Splash> {
                 totalRepeatCount: 2,
                 pause: const Duration(milliseconds: 100),
                 animatedTexts: [
-                  ScaleAnimatedText('Personal Expanses',
-                      scalingFactor: 0.35,
-                      textStyle: TextStyles.splashTitle,
-                      textAlign: TextAlign.center,
-                      duration: const Duration(milliseconds: 1200)),
+                  ScaleAnimatedText(
+                    'Personal Expanses',
+                    scalingFactor: 0.35,
+                    textStyle: TextStyles.splashTitle,
+                    textAlign: TextAlign.center,
+                    duration: const Duration(milliseconds: 1200),
+                  ),
                 ],
                 onFinished: () {
                   setState(() {
                     visible = true;
                   });
+                  SplashController.redirectOnAnimationEnd(context);
                 },
               ),
       ),

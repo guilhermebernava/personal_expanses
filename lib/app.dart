@@ -13,6 +13,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My Expanses',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: Fonts.monospace,
         primarySwatch:
