@@ -1,13 +1,13 @@
 class Transaction {
   final int id;
   final String title;
-  final double amout;
-  final DateTime date;
+  final double amount;
+  final String date;
 
   Transaction({
     this.id = 0,
     required this.title,
-    required this.amout,
+    required this.amount,
     required this.date,
   });
 
@@ -15,16 +15,15 @@ class Transaction {
     return Transaction(
       id: map['id'],
       title: map['title'],
-      amout: map['amout'],
+      amount: map['amount'],
       date: map['date'],
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
       'title': title,
-      'amount': amout,
+      'amount': amount,
       'date': date,
     };
   }
