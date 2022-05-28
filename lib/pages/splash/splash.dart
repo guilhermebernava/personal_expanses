@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_expanses/pages/splash/splash_controller.dart';
 import 'package:personal_expanses/themes/TextStyles/text_styles.dart';
 import 'package:personal_expanses/widgets/opacity_show.dart';
 import 'package:personal_expanses/widgets/show_up.dart';
@@ -15,14 +16,21 @@ class _SplashState extends State<Splash> {
   bool visible = false;
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    SplashController.redirectOnAnimationEnd(context);
+
     return Scaffold(
       backgroundColor: Colors.black54,
       body: Center(
         child: visible
             ? Builder(
                 builder: (context) => const ShowUp(
-                  delay: 600,
+                  delay: 100,
                   child: OpacityShow(
                     child: Text(
                       'Personal Expanses',
@@ -34,15 +42,14 @@ class _SplashState extends State<Splash> {
               )
             : AnimatedTextKit(
                 repeatForever: false,
-                totalRepeatCount: 3,
-                pause: const Duration(milliseconds: 500),
+                totalRepeatCount: 2,
+                pause: const Duration(milliseconds: 100),
                 animatedTexts: [
-                  ScaleAnimatedText(
-                    'Personal Expanses',
-                    scalingFactor: 0.35,
-                    textStyle: TextStyles.splashTitle,
-                    textAlign: TextAlign.center,
-                  ),
+                  ScaleAnimatedText('Personal Expanses',
+                      scalingFactor: 0.35,
+                      textStyle: TextStyles.splashTitle,
+                      textAlign: TextAlign.center,
+                      duration: const Duration(milliseconds: 1200)),
                 ],
                 onFinished: () {
                   setState(() {
