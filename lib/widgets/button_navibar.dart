@@ -11,9 +11,10 @@ class ButtonNavibar extends Padding {
             child: Container(
               decoration: BoxDecoration(boxShadow: const [
                 BoxShadow(
-                  color: Color.fromARGB(184, 13, 191, 236),
-                  spreadRadius: 1,
-                  blurRadius: 9,
+                  color: AppColors.greyBlueShadow,
+                  spreadRadius: 3,
+                  blurRadius: 5,
+                  offset: Offset(0, 1.5),
                 )
               ], shape: BoxShape.circle, color: Theme.of(context).primaryColor),
               child: const Icon(
