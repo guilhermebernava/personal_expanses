@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../themes/TextStyles/text_styles.dart';
 import '../themes/colors/app_colors.dart';
+import '../themes/text_styles/text_styles.dart';
 
 class InputWidget extends GestureDetector {
   InputWidget(

@@ -16,10 +16,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: Fonts.monospace,
-        primarySwatch:
-            const MaterialColor(ThemeColors.color, ThemeColors.colors),
         backgroundColor: AppColors.white,
         scaffoldBackgroundColor: AppColors.white,
+        primarySwatch:
+            const MaterialColor(ThemeColors.color, ThemeColors.colors),
       ),
       initialRoute: "/splash",
       routes: {

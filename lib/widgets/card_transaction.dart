@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expanses/themes/fonts/fonts.dart';
 
 class CardTransaction extends Card {
   CardTransaction({
@@ -15,19 +16,27 @@ class CardTransaction extends Card {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "R\$${value.replaceAll(".", ",")}",
-                style: const TextStyle(fontSize: 15, color: Colors.redAccent),
+                "R\$$value",
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.redAccent,
+                  fontFamily: Fonts.opensans,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(
                 width: 150,
                 child: ListTile(
                   title: Text(
                     title,
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(
+                        fontFamily: Fonts.proximaNova, fontSize: 18),
                   ),
                   subtitle: Text(
                     date,
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(fontSize: 14),
                   ),
                 ),
               ),

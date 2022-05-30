@@ -1,9 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_expanses/pages/splash/splash_controller.dart';
-import 'package:personal_expanses/themes/TextStyles/text_styles.dart';
 import 'package:personal_expanses/widgets/opacity_show.dart';
 import 'package:personal_expanses/widgets/show_up.dart';
+
+import '../../themes/text_styles/text_styles.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
