@@ -8,7 +8,7 @@ class ListTransactions extends SizedBox {
       {Key? key})
       : super(
             key: key,
-            height: MediaQuery.of(context).size.height * 0.51,
+            height: MediaQuery.of(context).size.height * 0.56,
             child: ListView.builder(
               itemCount: transactions.length,
               itemBuilder: (context, index) => CardTransaction(

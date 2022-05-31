@@ -35,7 +35,7 @@ class HomeController {
       backgroundColor: AppColors.white,
       elevation: 3,
       context: context,
-      builder: (_) => CreateTransactionForm(),
+      builder: (_) => const CreateTransactionForm(),
     );
     await getTransactions();
   }

@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:personal_expanses/models/transaction.dart';
 import 'package:personal_expanses/services/route_services.dart';
 import 'package:personal_expanses/themes/colors/app_colors.dart';
 import 'package:personal_expanses/widgets/create_transaction_form/create_transaction_controller.dart';
+import '../../themes/fonts/fonts.dart';
 import '../input.dart';
 
-class CreateTransactionForm extends StatelessWidget {
-  CreateTransactionForm({Key? key}) : super(key: key);
+class CreateTransactionForm extends StatefulWidget {
+  const CreateTransactionForm({Key? key}) : super(key: key);
 
+  @override
+  State<CreateTransactionForm> createState() => _CreateTransactionFormState();
+}
+
+class _CreateTransactionFormState extends State<CreateTransactionForm> {
   final controller = CreateTransactionController();
-
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+  DateTime? _date;
 
   @override
   Widget build(BuildContext context) {
@@ -89,15 +96,49 @@ class CreateTransactionForm extends StatelessWidget {
                   ],
                   keyboardType: TextInputType.multiline,
                 ),
+                SizedBox(
+                  height: 50,
+                  child: Row(
+                    children: [
+                      Text(
+                        _date == null
+                            ? "No Date"
+                            : DateFormat.yMd().format(_date!),
+                        style: const TextStyle(
+                          fontFamily: Fonts.proximaNova,
+                          fontSize: 16,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () async {
+                          var date = await controller.openDatePicker(context);
+                          setState(() {
+                            _date = date;
+                          });
+                        },
+                        child: const Text(
+                          "Select a Date",
+                          style: TextStyle(
+                            fontFamily: Fonts.opensans,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
+                  padding: const EdgeInsets.only(top: 15.0),
                   child: ElevatedButton(
                     onPressed: () => controller.createTransaction(
                       context,
                       Transaction(
                           title: titleController.text,
                           amount: double.parse(amountController.text),
-                          date: "1/1/2000"),
+                          date: _date != null
+                              ? DateFormat.yMd().format(_date!)
+                              : "1/1/0001"),
                     ),
                     child: const Text(
                       "Create",
@@ -107,7 +148,7 @@ class CreateTransactionForm extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

@@ -25,4 +25,12 @@ class CreateTransactionController {
     await TransactionDao.save(model);
     return true;
   }
+
+  Future<DateTime?> openDatePicker(BuildContext context) async {
+    return await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2022),
+        lastDate: DateTime.now());
+  }
 }

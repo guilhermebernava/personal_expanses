@@ -5,7 +5,7 @@ import 'package:personal_expanses/themes/colors/app_colors.dart';
 import 'package:personal_expanses/themes/fonts/fonts.dart';
 import 'package:personal_expanses/widgets/bottom_navibar_widget.dart';
 import 'package:personal_expanses/widgets/button_navibar.dart';
-import 'package:personal_expanses/widgets/chart.dart';
+import 'package:personal_expanses/widgets/chart/chart.dart';
 import 'package:personal_expanses/widgets/image_background.dart';
 import '../../widgets/list_transactions.dart';
 
