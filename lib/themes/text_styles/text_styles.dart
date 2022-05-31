@@ -22,4 +22,10 @@ class TextStyles {
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );
+
+  static const errorFuture = TextStyle(
+    fontFamily: Fonts.proximaNova,
+    fontSize: 50,
+    color: Colors.redAccent,
+  );
 }

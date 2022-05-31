@@ -41,8 +41,8 @@ class _HomeState extends State<Home> {
           backgroundColor: Theme.of(context).primaryColor,
           actions: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.025,
               ),
               child: IconButton(
                 icon: const Icon(
@@ -57,10 +57,10 @@ class _HomeState extends State<Home> {
       body: ValueListenableBuilder<List<Transaction>>(
         valueListenable: controller.transactionNotifier,
         builder: (_, transactions, __) => transactions.isEmpty
-            ? ImageBackground()
+            ? ImageBackground(context)
             : Column(
                 children: [
-                  Chart(),
+                  Chart(context),
                   ListTransactions(context, transactions, controller)
                 ],
               ),

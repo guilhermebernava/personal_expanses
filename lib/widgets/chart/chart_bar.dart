@@ -2,23 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:personal_expanses/themes/colors/app_colors.dart';
 
 class ChartBar extends Padding {
-  ChartBar({
+  ChartBar(
+    BuildContext context, {
     Key? key,
     required double totalValue,
     required double heightFactor,
     required String day,
   }) : super(
           key: key,
-          padding: const EdgeInsets.symmetric(
-            vertical: 15.0,
-            horizontal: 20,
+          padding: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.width * 0.05,
+            horizontal: MediaQuery.of(context).size.width * 0.04,
           ),
           child: Column(
             children: [
               Text("\$$totalValue"),
               SizedBox(
-                width: 10,
-                height: 70,
+                width: MediaQuery.of(context).size.width * 0.025,
+                height: MediaQuery.of(context).size.height * 0.1,
                 child: Stack(children: [
                   Container(
                     decoration: BoxDecoration(

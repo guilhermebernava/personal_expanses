@@ -33,15 +33,16 @@ class _CreateTransactionFormState extends State<CreateTransactionForm> {
         child: Form(
           key: controller.formKey,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10.0,
-              horizontal: 30,
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.07,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 300.0),
+                  padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.8,
+                  ),
                   child: IconButton(
                     onPressed: () => RoutesServices.returnTo(context),
                     icon: const Icon(Icons.close_outlined),
@@ -97,7 +98,7 @@ class _CreateTransactionFormState extends State<CreateTransactionForm> {
                   keyboardType: TextInputType.multiline,
                 ),
                 SizedBox(
-                  height: 50,
+                  height: MediaQuery.of(context).size.height * 0.06,
                   child: Row(
                     children: [
                       Text(
@@ -129,16 +130,16 @@ class _CreateTransactionFormState extends State<CreateTransactionForm> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.026,
+                  ),
                   child: ElevatedButton(
                     onPressed: () => controller.createTransaction(
                       context,
                       Transaction(
                           title: titleController.text,
                           amount: double.parse(amountController.text),
-                          date: _date != null
-                              ? DateFormat.yMd().format(_date!)
-                              : "1/1/0001"),
+                          date: _date != null ? _date! : DateTime.now()),
                     ),
                     child: const Text(
                       "Create",

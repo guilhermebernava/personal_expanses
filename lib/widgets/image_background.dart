@@ -4,18 +4,19 @@ import '../themes/colors/app_colors.dart';
 import '../themes/images/app_images.dart';
 
 class ImageBackground extends Padding {
-  ImageBackground({Key? key})
+  ImageBackground(BuildContext context, {Key? key})
       : super(
           key: key,
-          padding: const EdgeInsets.only(
-            top: 100.0,
-            left: 130,
+          padding: EdgeInsets.only(
+            top: MediaQuery.of(context).size.height * 0.1,
+            left: MediaQuery.of(context).size.width * 0.32,
           ),
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: 100),
-                child: Text(
+              Padding(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).size.height * 0.05),
+                child: const Text(
                   "No transactions...",
                   style: TextStyle(
                     fontFamily: Fonts.quicksand,

@@ -2,7 +2,7 @@ class Transaction {
   final int id;
   final String title;
   final double amount;
-  final String date;
+  final DateTime date;
 
   Transaction({
     this.id = 0,
@@ -16,7 +16,7 @@ class Transaction {
       id: map['id'],
       title: map['title'],
       amount: map['amount'],
-      date: map['date'],
+      date: DateTime.parse(map['date']),
     );
   }
 
@@ -24,7 +24,7 @@ class Transaction {
     return {
       'title': title,
       'amount': amount,
-      'date': date,
+      'date': date.toString(),
     };
   }
 }
